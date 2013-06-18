@@ -50,7 +50,7 @@ def main():
     temp = pandas.DataFrame({'sequences':pandas.Series(sequencesSub,index=t3.index)})
     t3 = t3.join(temp)
 
-
+#pdb.set_trace()
     t3.to_csv(args.out[0],sep='\t',index=True)
     sys.exit()
 

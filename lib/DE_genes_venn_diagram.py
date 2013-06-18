@@ -28,9 +28,12 @@ def main():
     #load tables
     
     table1 = pandas.read_table(args.table1[0])
+    table1.index = table1['Unnamed: 0']
     table2 = pandas.read_table(args.table2[0])
+    table2.index = table2['Unnamed: 0']
     table3 = pandas.read_table(args.table3[0])
-    #pdb.set_trace()
+    table3.index = table3['Unnamed: 0']
+
     
     
     print '\n' + args.table1[0] + '\n'
@@ -70,7 +73,7 @@ def main():
     print args.table1[0] + ' and ' + args.table3[0] + ': \n' + str(len(set1.intersection(set3)))
     print args.table3[0] + ' and ' + args.table2[0] + ': \n' + str(len(set3.intersection(set2)))
     print args.table1[0] + ' and ' + args.table2[0] + ' and ' + args.table3[0] + ': \n' + str(len(set1.intersection(set3.intersection(set2))))
-
+    #pdb.set_trace()
     sys.exit()
 
 if __name__=='__main__':
