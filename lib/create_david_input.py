@@ -2,8 +2,18 @@
 Charles Murphy
 murphy.charlesj@gmail.com
 
-Takes final trinity output table and DE results and outputs
-a list of uniprot ids.
+Creates the input list of UniProt IDS that are needed for IPA and DAVID
+from the results of running Trinotate and the edgeR wrapper in Trinity.
+
+Input:
+Trinotate output table from running:
+Trinotate.pl report [opts] > trinotate_annotation_report.xls
+
+DE results from running:
+$TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl
+
+Outputs:
+File containing uniprot ids
 
 """
 

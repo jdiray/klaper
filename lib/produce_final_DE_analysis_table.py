@@ -2,7 +2,14 @@
 Charles Murphy
 murphy.charlesj@gmail.com
 
-Takes output table from edgeR
+This was written for an RNA-Seq experiment that included four sample groups:
+1 control and 3 test.
+The RNA-Seq data was assembled via Trinity and differential expression was
+tested using Trinity's wrappers for edgeR/DESeq.
+
+
+Takes output table from:
+$TRINITY_HOME/Analysis/DifferentialExpression/run_DE_analysis.pl
 and concatenates the Blast2GO annotation done by Purdue.
 
 """
@@ -17,7 +24,7 @@ from Bio import SeqIO
 import pdb
 
 def main():
-    
+
     parser = argparse.ArgumentParser(description="Extract fasta file.")
     parser.add_argument('-table1',nargs=1,type=str,help="Table containing DE results.")
     parser.add_argument('-table2',nargs=1,type=str,help="Table containing Blast2GO results.")
@@ -26,7 +33,7 @@ def main():
     args = parser.parse_args()
 
     sequences = dict()
-    
+
     #load fasta
     fin = open(args.fasta[0],"rU")
     for sequence in SeqIO.parse(fin,"fasta"):
@@ -34,10 +41,10 @@ def main():
     fin.close()
 
     #load tables
-    
+
     table1 = pandas.read_table(args.table1[0])
     table2 = pandas.read_table(args.table2[0])
-    
+
 
     #parse data
     table2.index = table2.Contig
